@@ -1,0 +1,13 @@
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application('choppa', '1.0.0');
+
+$command = new Mosher\Choppa\Console\GetToTheChoppaCommand();
+
+$application->add($command);
+$application->setDefaultCommand($command->getName());
+$application->run();

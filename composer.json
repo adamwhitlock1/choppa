@@ -1,0 +1,20 @@
+{
+    "name": "mosher/choppa",
+    "type": "project",
+    "require": {
+        "symfony/console": "^5.0",
+        "illuminate/support": "^7.5"
+    },
+    "authors": [
+        {
+            "name": "David Mosher",
+            "email": "dmosher@protegetechnology.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mosher\\Choppa\\": "src/"
+        }
+    }
+}
+
