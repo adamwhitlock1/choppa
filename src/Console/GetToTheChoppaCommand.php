@@ -13,6 +13,7 @@ class GetToTheChoppaCommand extends Command
 {
     protected static $defaultName = 'gettothe:choppa';
 
+
     protected function configure()
     {
         $this->setDescription('Description')
@@ -36,10 +37,10 @@ class GetToTheChoppaCommand extends Command
 
     private function animate($section)
     {
-        $max_frames = 50;
+        $max_frames = 111;
         for ($i = 0; $i <= $max_frames; $i++) {
             $section->overwrite($this->choppa($i));
-            usleep(50000);
+            usleep(30000);
         }
 
     }
@@ -48,8 +49,7 @@ class GetToTheChoppaCommand extends Command
     {
         return '
 ' . $this->makeBlades($frame) . '
-                 ~|~                        ,-~~-.
-         ____/~~~~~~~======-=              :  /~> :
+         ____/~~~~~~~======-=               :  /~> :
        /\'~~||~| |== == |-- ~-________________/  /
      _/_|__||_| ||_||_||     LARAVEL           <
    (-+|    |    |______|     ___-----```````\__\
@@ -61,19 +61,95 @@ class GetToTheChoppaCommand extends Command
 
     private function makeBlades(int $frame): string
     {
-        switch ($frame % 5) {
+        $frame1 =<<<EOD
+            ====
+                =--+--=
+                  ~|~  ====                  ,-~~-.
+EOD;
+
+        $frame2 =<<<EOD
+          ====
+              ===--+--===
+                  ~|~    ====                ,-~~-.
+EOD;
+
+        $frame3 =<<<EOD
+        ====
+            =====--+--======
+                  ~|~       ====             ,-~~-.
+EOD;
+
+        $frame4 =<<<EOD
+      ====
+          =======--+--========
+                  ~|~         ====           ,-~~-.
+EOD;
+
+        $frame5 =<<<EOD
+     ====
+         ========--+--=========
+                  ~|~          ====          ,-~~-.
+EOD;
+
+        $frame6 =<<<EOD
+    ====
+        =========--+--==========
+                  ~|~           ====         ,-~~-.
+EOD;
+
+        $frame7 =<<<EOD
+                                ====
+        =========--+--==========
+    ====          ~|~                        ,-~~-.
+EOD;
+
+        $frame8 =<<<EOD
+                              ====
+          =======--+--========
+      ====        ~|~                        ,-~~-.
+EOD;
+
+        $frame9 =<<<EOD
+                            ====
+            =====--+--======
+        ====      ~|~                        ,-~~-.
+EOD;
+
+        $frame10 =<<<EOD
+                          ====
+              ===--+--===
+          ====    ~|~                        ,-~~-.
+EOD;
+
+        $frame11 =<<<EOD
+                       ====
+                =--+--=
+            ====  ~|~                        ,-~~-.
+EOD;
+
+        switch ($frame % 10) {
             case 1:
-                return '   =============--+--==============   ';
+                return $frame1;
             case 2:
-                return '         =======--+--========         ';
+                return $frame2;
             case 3:
-                return '               =--+--=                ';
+                return $frame3;
             case 4:
-                return '         =======--+--========         ';
+                return $frame4;
             case 5:
-                return '   =============--+--==============   ';
+                return $frame5;
+            case 6:
+                return $frame6;
+            case 7:
+                return $frame7;
+            case 8:
+                return $frame8;
+            case 9:
+                return $frame9;
+            case 10:
+                return $frame10;
         }
 
-        return '================--+--=================';
+        return $frame11;
     }
 }
